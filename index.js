@@ -1,3 +1,10 @@
+let originalArray = document.querySelectorAll('*[id]')
+
+collectAllIds = []
+for (let getIds = 0; getIds < originalArray.length; getIds++) {
+  collectAllIds.push(originalArray[getIds]['id']);
+}
+
 class Socker {
   constructor(data) {
     this.data = data
@@ -16,19 +23,10 @@ class Socker {
   }
 }
 
-const originalArray = [
-  'first-id',
-  'second-id',
-  'third-id'
-]
-
-const allIds = new Socker(originalArray).cleaningNames();
+const allIds = new Socker(collectAllIds).cleaningNames();
 
 const exito = {}
 
 for (i = 0; i < allIds.length; i++) {
-  exito[allIds[i]] = document.getElementById(originalArray[i]);
+  exito[allIds[i]] = document.getElementById(collectAllIds[i]);
 }
-
-// console.log(exito.secondId.style.color = "red");
-
